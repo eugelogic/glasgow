@@ -1,6 +1,10 @@
+/* eslint-disable import/no-anonymous-default-export */
+import { HiOutlineDocumentAdd } from "react-icons/hi";
+
 export default {
   name: 'post',
   title: 'Post',
+  icon: HiOutlineDocumentAdd,
   type: 'document',
   fields: [
     {

@@ -1,6 +1,10 @@
+/* eslint-disable import/no-anonymous-default-export */
+import { HiOutlineDocumentAdd } from "react-icons/hi";
+
 export default {
   name: 'author',
   title: 'Author',
+  icon: HiOutlineDocumentAdd,
   type: 'document',
   fields: [
     {
