@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "NextJS Tekton Blog by EM"
+    "name": "NextJS Tekton Blog by EM",
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "7uj3lha9",
