@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "project": {
+    "name": "NextJS Tekton Blog by EM"
+  },
+  "api": {
+    "projectId": "7uj3lha9",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "@sanity/vision"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    }
+  ]
+}
