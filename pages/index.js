@@ -6,6 +6,7 @@ const Home = () => {
       <Head>
         <title>Tekton</title>
         <meta name="description" content="NextJS & Sanity proof of concept blog" />
+        <link rel="icon" href="./favicon.ico" />
       </Head>
 
       <main>
