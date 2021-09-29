@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import {
     sanityClient,
-    PortableText
+    PortableText,
+    urlFor
 } from '../../lib/sanity'
 
 const postQuery = `*[ _type == 'post' && slug.current == $slug ][0]{
@@ -54,6 +56,7 @@ const Post = ({ data }) => {
     return (
         <article>
             <h1>{post.title}</h1>
+            <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />
             <h3>Category:</h3>
             <ul>{post.categories.map(cat => (
                 <li key={cat._id}>

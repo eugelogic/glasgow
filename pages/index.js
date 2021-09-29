@@ -31,7 +31,7 @@ export const getStaticProps = async () => {
 }
 
 const Home = ({ posts }) => {
-console.log(posts)
+// console.log(posts)
   return (
     <div>
       <Head>
