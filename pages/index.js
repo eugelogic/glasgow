@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   sanityClient,
   urlFor
@@ -45,8 +46,12 @@ const Home = ({ posts }) => {
           {posts?.length > 0 && posts.map(post => (
             <li key={post._id}>
               <article>
-                <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />
-                <h2>{post.title}</h2>
+                <Link href={`/posts/${post.slug.current}`}>
+                  <a>
+                    <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />
+                    <h2>{post.title}</h2>
+                  </a>
+                </Link>
                 <h3>Category:</h3>
                 <ul>{post.categories.map(cat => (
                   <li key={cat._id}>
