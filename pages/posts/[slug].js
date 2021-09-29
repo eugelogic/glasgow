@@ -69,11 +69,6 @@ const Post = ({ data }) => {
                 <p>Published on:{' '}
                     <time dateTime={post.publishedAt}>
                         <FormatDate date={post.publishedAt} />
-                        {/* {new Intl.DateTimeFormat("en-GB", {
-                            year: "numeric",
-                            month: "long",
-                            day: "2-digit"
-                        }).format(post.publishedAt)} */}
                     </time>
                     {' '}by {post.author.name}
                 </p>
