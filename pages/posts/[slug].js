@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import Image from 'next/image'
+import FormatDate from '../../components/FormatDate'
 import {
     sanityClient,
     PortableText,
@@ -66,7 +67,9 @@ const Post = ({ data }) => {
             <PortableText blocks={post.body} />
             <footer>
                 <p>Published on:{' '}
-                    <time dateTime={post.publishedAt}>{post.publishedAt}</time>
+                    <time dateTime={post.publishedAt}>
+                        <FormatDate date={post.publishedAt} />
+                    </time>
                     {' '}by {post.author.name}
                 </p>
             </footer>

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import FormatDate from '../components/FormatDate'
 import {
   sanityClient,
   urlFor
@@ -60,7 +61,7 @@ const Home = ({ posts }) => {
                   ))}</ul>
                 <p>{post.excerpt}</p>
                 <h3>Written by: {post.author.name}</h3>
-                <h3>Published on {post.publishedAt}</h3>
+                <h3>Published on <FormatDate date={post.publishedAt} /></h3>
               </article>
             </li>
           ))}
