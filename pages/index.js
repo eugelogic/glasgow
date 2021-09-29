@@ -1,5 +1,9 @@
 import Head from 'next/head'
-import { sanityClient } from '../lib/sanity'
+import Image from 'next/image'
+import {
+  sanityClient,
+  urlFor
+} from '../lib/sanity'
 
 const postsQuery = `*[ _type == 'post']{
   _id,
@@ -41,6 +45,7 @@ console.log(posts)
           {posts?.length > 0 && posts.map(post => (
             <li key={post._id}>
               <article>
+                <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />
                 <h2>{post.title}</h2>
                 <h3>Category:</h3>
                 <ul>{post.categories.map(cat => (
