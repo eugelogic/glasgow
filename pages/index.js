@@ -1,6 +1,33 @@
 import Head from 'next/head'
+import { sanityClient } from '../lib/sanity'
 
-const Home = () => {
+const postsQuery = `*[ _type == 'post']{
+  _id,
+  title,
+  slug,
+  excerpt,
+  author->{
+    name
+  },
+  mainImage,
+  categories[]->{
+    _id,
+    title
+  },
+  publishedAt
+}`
+
+export const getStaticProps = async () => {
+  const posts = await sanityClient.fetch(postsQuery)
+  return {
+    props: {
+      posts
+    }
+  }
+}
+
+const Home = ({ posts }) => {
+console.log(posts)
   return (
     <div>
       <Head>
@@ -10,7 +37,24 @@ const Home = () => {
       </Head>
 
       <main>
-        <h1>Hello World</h1>
+        <ul>
+          {posts?.length > 0 && posts.map(post => (
+            <li key={post._id}>
+              <article>
+                <h2>{post.title}</h2>
+                <h3>Category:</h3>
+                <ul>{post.categories.map(cat => (
+                  <li key={cat._id}>
+                    {cat.title}
+                  </li>
+                  ))}</ul>
+                <p>{post.excerpt}</p>
+                <h3>Written by: {post.author.name}</h3>
+                <h3>Published on {post.publishedAt}</h3>
+              </article>
+            </li>
+          ))}
+        </ul>
       </main>
 
       <footer>
