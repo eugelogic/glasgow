@@ -20,7 +20,7 @@ const postsQuery = `*[ _type == 'post']{
     title
   },
   publishedAt
-}`
+}|order(publishedAt desc)`
 
 export const getStaticProps = async () => {
   const posts = await sanityClient.fetch(postsQuery)
