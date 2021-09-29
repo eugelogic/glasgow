@@ -79,8 +79,16 @@ export default {
       title: 'Body',
       type: 'blockContent',
     },
+    {
+      name: 'likes',
+      title: 'Likes',
+      type: 'number',
+      readOnly: true,
+    },
   ],
-
+  initialValue: {
+    likes: 0,
+  },
   preview: {
     select: {
       title: 'title',
