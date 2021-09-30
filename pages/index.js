@@ -61,7 +61,7 @@ const Home = ({ posts }) => {
                   ))}</ul>
                 <p>{post.excerpt}</p>
                 <h3>Written by: {post.author.name}</h3>
-                <h3>Published on <FormatDate date={post.publishedAt} /></h3>
+                <h3>Published on <time dateTime={post.publishedAt}><FormatDate date={post.publishedAt} /></time></h3>
               </article>
             </li>
           ))}
