@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import FormatDate from '../components/FormatDate'
 import {
   sanityClient,
@@ -77,9 +78,7 @@ const Home = ({ siteSettings, posts }) => {
         </ul>
       </main>
 
-      <footer>
-        <p>Footer Here</p>
-      </footer>
+      <Footer siteName={siteSettings?.siteName} />
     </div>
   )
 }
