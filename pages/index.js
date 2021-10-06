@@ -1,11 +1,16 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Header from '../components/Header'
 import FormatDate from '../components/FormatDate'
 import {
   sanityClient,
   urlFor
 } from '../lib/sanity'
+
+const siteSettingsQuery = `*[ _type == 'siteSettings' ][0]{
+  siteName
+}`
 
 const postsQuery = `*[ _type == 'post']{
   _id,
@@ -25,15 +30,18 @@ const postsQuery = `*[ _type == 'post']{
 
 export const getStaticProps = async () => {
   const posts = await sanityClient.fetch(postsQuery)
+  const siteSettings = await sanityClient.fetch(siteSettingsQuery)
   return {
     props: {
+      siteSettings,
       posts
     }
   }
 }
 
-const Home = ({ posts }) => {
+const Home = ({ siteSettings, posts }) => {
 // console.log(posts)
+// console.log(siteSettings)
   return (
     <div>
       <Head>
@@ -42,6 +50,7 @@ const Home = ({ posts }) => {
         <link rel="icon" href="./favicon.ico" />
       </Head>
 
+      <Header>{siteSettings?.siteName}</Header>
       <main>
         <ul>
           {posts?.length > 0 && posts.map(post => (
