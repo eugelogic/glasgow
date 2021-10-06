@@ -51,7 +51,7 @@ const Home = ({ siteSettings, posts }) => {
         <link rel="icon" href="./favicon.ico" />
       </Head>
 
-      <Header>{siteSettings?.siteName}</Header>
+      <Header siteSettings={siteSettings} />
       <main>
         <ul>
           {posts?.length > 0 && posts.map(post => (
@@ -78,7 +78,7 @@ const Home = ({ siteSettings, posts }) => {
         </ul>
       </main>
 
-      <Footer siteName={siteSettings?.siteName} />
+      <Footer siteSettings={siteSettings} />
     </div>
   )
 }

@@ -1,8 +1,8 @@
-const Header = ({ children }) => {
+const Header = ({ siteSettings }) => {
 
     return(
         <header className="header">
-            <h1 className="site-title">{children}</h1>
+            <h1 className="site-title">{siteSettings.siteName}</h1>
         </header>
     )
 }

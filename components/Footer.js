@@ -1,7 +1,8 @@
-const Footer = ({ siteName }) => {
+const Footer = ({ siteSettings }) => {
+
     return (
         <footer>
-            <p>&copy; {new Date().getFullYear()} {siteName}</p>
+            <p>&copy; {new Date().getFullYear()} {siteSettings.siteName}</p>
         </footer>
     )
 }
