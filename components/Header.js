@@ -1,9 +1,9 @@
 const Header = ({ children }) => {
 
     return(
-        <div className="header">
+        <header className="header">
             <h1 className="site-title">{children}</h1>
-        </div>
+        </header>
     )
 }
 
