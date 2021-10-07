@@ -2,12 +2,17 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { BiLike } from "react-icons/bi";
 import Image from 'next/image'
+import Layout from '../../components/Layout';
 import FormatDate from '../../components/FormatDate'
 import {
     sanityClient,
     PortableText,
     urlFor
 } from '../../lib/sanity'
+
+const siteSettingsQuery = `*[ _type == 'siteSettings' ][0]{
+    siteName
+}`
 
 const postQuery = `*[ _type == 'post' && slug.current == $slug ][0]{
     _id,
@@ -43,14 +48,16 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
     const { slug } = params
     const post = await sanityClient.fetch(postQuery, { slug })
+    const siteSettings = await sanityClient.fetch(siteSettingsQuery)
     return {
         props: {
-            data: { post }
+            siteSettings,
+            data: { post },
         }
     }
 }
 
-const Post = ({ data }) => {
+const Post = ({ siteSettings, data }) => {
 
     const [likes, setLikes] = useState(data?.post?.likes)
     const handleLike = async () => {
@@ -72,30 +79,32 @@ const Post = ({ data }) => {
     // console.log(post)
     console.log(likes)
     return (
-        <article>
-            <h1>{post.title}</h1>
-            <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />
-            <div>
-                <button onClick={handleLike}>
-                    {likes} <BiLike />
-                </button>
-            </div>
-            <h3>Category:</h3>
-            <ul>{post.categories.map(cat => (
-                <li key={cat._id}>
-                    {cat.title}
-                </li>
-            ))}</ul>
-            <PortableText blocks={post.body} />
-            <footer>
-                <p>Published on:{' '}
-                    <time dateTime={post.publishedAt}>
-                        <FormatDate date={post.publishedAt} />
-                    </time>
-                    {' '}by {post.author.name}
-                </p>
-            </footer>
-        </article>
+        <Layout siteSettings={siteSettings}>
+            <article>
+                <h1>{post.title}</h1>
+                <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />
+                <div>
+                    <button onClick={handleLike}>
+                        {likes} <BiLike />
+                    </button>
+                </div>
+                <h3>Category:</h3>
+                <ul>{post.categories.map(cat => (
+                    <li key={cat._id}>
+                        {cat.title}
+                    </li>
+                ))}</ul>
+                <PortableText blocks={post.body} />
+                <footer>
+                    <p>Published on:{' '}
+                        <time dateTime={post.publishedAt}>
+                            <FormatDate date={post.publishedAt} />
+                        </time>
+                        {' '}by {post.author.name}
+                    </p>
+                </footer>
+            </article>
+        </Layout>
     )
 }
 

@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+// import Header from '../components/Header'
+// import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 import FormatDate from '../components/FormatDate'
 import {
   sanityClient,
@@ -51,7 +52,7 @@ const Home = ({ siteSettings, posts }) => {
         <link rel="icon" href="./favicon.ico" />
       </Head>
 
-      <Header siteSettings={siteSettings} />
+      <Layout siteSettings={siteSettings} >
       <main>
         <ul>
           {posts?.length > 0 && posts.map(post => (
@@ -78,7 +79,7 @@ const Home = ({ siteSettings, posts }) => {
         </ul>
       </main>
 
-      <Footer siteSettings={siteSettings} />
+      </Layout>
     </div>
   )
 }
