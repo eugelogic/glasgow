@@ -56,15 +56,21 @@ const Home = ({ siteSettings, posts }) => {
                     <h2>{post.title}</h2>
                   </a>
                 </Link>
-                <h3>Category:</h3>
-                <ul>{post.categories.map(cat => (
-                  <li key={cat._id}>
-                    {cat.title}
-                  </li>
+                <div>Category:
+                  <ul>{post.categories.map(cat => (
+                    <li key={cat._id}>
+                      {cat.title}
+                    </li>
                   ))}</ul>
-                <p>{post.excerpt}</p>
-                <h3>Written by: {post.author.name}</h3>
-                <h3>Published on <time dateTime={post.publishedAt}><FormatDate date={post.publishedAt} /></time></h3>
+                </div>
+                <div>
+                  <p>{post.excerpt}</p>
+                </div>
+                <div>
+                  Published on{' '}
+                  <time dateTime={post.publishedAt}><FormatDate date={post.publishedAt} /></time>
+                  {' '} by {post.author.name}
+                </div>
               </article>
             </li>
           ))}

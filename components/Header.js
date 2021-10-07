@@ -6,7 +6,7 @@ const Header = ({ siteSettings }) => {
         <header className="header">
             <Link href="/">
                 <a aria-label="Go Home">
-                    <h1 className="site-title">{siteSettings.siteName}</h1>
+                    <span className="site-title">{siteSettings.siteName}</span>
                 </a>
             </Link>
         </header>

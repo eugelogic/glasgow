@@ -88,20 +88,22 @@ const Post = ({ siteSettings, data }) => {
                         {likes} <BiLike />
                     </button>
                 </div>
-                <h3>Category:</h3>
-                <ul>{post.categories.map(cat => (
-                    <li key={cat._id}>
-                        {cat.title}
-                    </li>
-                ))}</ul>
-                <PortableText blocks={post.body} />
+                <div>Category:
+                    <ul>{post.categories.map(cat => (
+                        <li key={cat._id}>
+                            {cat.title}
+                        </li>
+                    ))}</ul>
+                </div>
+                <div>
+                    <PortableText blocks={post.body} />
+                </div>
                 <footer>
-                    <p>Published on:{' '}
-                        <time dateTime={post.publishedAt}>
-                            <FormatDate date={post.publishedAt} />
-                        </time>
-                        {' '}by {post.author.name}
-                    </p>
+                    Published on:{' '}
+                    <time dateTime={post.publishedAt}>
+                        <FormatDate date={post.publishedAt} />
+                    </time>
+                    {' '}by {post.author.name}
                 </footer>
             </article>
         </Layout>
