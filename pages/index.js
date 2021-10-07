@@ -9,6 +9,7 @@ import {
 
 const siteSettingsQuery = `*[ _type == 'siteSettings' ][0]{
   siteName,
+  shortDescription,
   description
 }`
 

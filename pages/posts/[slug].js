@@ -79,7 +79,7 @@ const Post = ({ siteSettings, data }) => {
     // console.log(post)
     console.log(likes)
     return (
-        <Layout siteSettings={siteSettings}>
+        <Layout siteSettings={siteSettings} post={post}>
             <article>
                 <h1>{post.title}</h1>
                 <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />

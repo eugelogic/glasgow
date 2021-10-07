@@ -17,6 +17,11 @@ export default {
             type: 'string'
         },
         {
+            name: 'shortDescription',
+            title: 'Browser Tab Description',
+            type: 'string'
+        },
+        {
             name: 'description',
             title: 'Meta Description',
             type: 'text'
