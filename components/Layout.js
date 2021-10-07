@@ -6,9 +6,10 @@ const Layout = ({ siteSettings, children }) => {
     return (
         <>
             <Head>
+                <link rel="icon" href="./favicon.ico" />
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <title>{siteSettings?.siteName}</title>
                 <meta name="description" content={siteSettings?.description} />
-                <link rel="icon" href="./favicon.ico" />
             </Head>
             <Header siteSettings={siteSettings} />
                 {children}
