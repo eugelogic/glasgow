@@ -1,8 +1,5 @@
-import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-// import Header from '../components/Header'
-// import Footer from '../components/Footer'
 import Layout from '../components/Layout'
 import FormatDate from '../components/FormatDate'
 import {
@@ -11,7 +8,8 @@ import {
 } from '../lib/sanity'
 
 const siteSettingsQuery = `*[ _type == 'siteSettings' ][0]{
-  siteName
+  siteName,
+  description
 }`
 
 const postsQuery = `*[ _type == 'post']{
@@ -45,14 +43,7 @@ const Home = ({ siteSettings, posts }) => {
 // console.log(posts)
 // console.log(siteSettings)
   return (
-    <div>
-      <Head>
-        <title>Tekton</title>
-        <meta name="description" content="NextJS & Sanity proof of concept blog" />
-        <link rel="icon" href="./favicon.ico" />
-      </Head>
-
-      <Layout siteSettings={siteSettings} >
+    <Layout siteSettings={siteSettings} >
       <main>
         <ul>
           {posts?.length > 0 && posts.map(post => (
@@ -78,9 +69,7 @@ const Home = ({ siteSettings, posts }) => {
           ))}
         </ul>
       </main>
-
-      </Layout>
-    </div>
+    </Layout>
   )
 }
 

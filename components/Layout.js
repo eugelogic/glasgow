@@ -1,13 +1,19 @@
-import Footer from "./Footer"
-import Header from "./Header"
+import Head from 'next/head'
+import Footer from './Footer'
+import Header from './Header'
 
 const Layout = ({ siteSettings, children }) => {
     return (
-        <div>
+        <>
+            <Head>
+                <title>{siteSettings?.siteName}</title>
+                <meta name="description" content={siteSettings?.description} />
+                <link rel="icon" href="./favicon.ico" />
+            </Head>
             <Header siteSettings={siteSettings} />
                 {children}
             <Footer siteSettings={siteSettings} />
-        </div>
+        </>
     )
 }
 
