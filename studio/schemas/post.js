@@ -31,7 +31,7 @@ export default {
       rows: 5,
       type: "text",
       validation: Rule =>
-        Rule.max(160).error(
+        Rule.max(300).error(
           "SEO descriptions are usually better when its below 160"
         )
     },

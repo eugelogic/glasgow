@@ -1,1 +1,180 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+/* --------- TYPOGRAPHY --------- */
+
+.header .site-title,
+.footer {
+  font-family: "Baumans", cursive;
+}
+
+h1,
+h2,
+h3,
+.header .site-description,
+.blog-feed .category,
+.blog-feed article p,
+.blog-feed .date-and-author,
+.single-post .category,
+.single-post .like,
+.single-post .body,
+.single-post footer {
+  font-family: "Montserrat", sans-serif;
+}
+
+.blog-feed .category,
+.blog-feed .date-and-author,
+.single-post .category,
+.single-post footer {
+  font-weight: bolder;
+}
+
+.header,
+.header a,
+.single-post .like button:hover,
+.footer {
+  color: white;
+}
+
+.blog-feed article a,
+.blog-feed .category,
+.blog-feed article p,
+.blog-feed .date-and-author,
+.single-post h1,
+.single-post .like,
+.single-post .like button,
+.single-post .category,
+.single-post .body,
+.single-post p a,
+.single-post footer {
+  color: #333;
+}
+
+.header .site-title {
+  font-size: 6vh;
+}
+
+.header .site-description {
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+
+.blog-feed article a h2 {
+  font-size: 2rem;
+}
+
+.footer p {
+  font-size: 1.25rem;
+}
+
+/* --------- HEADER --------- */
+
+.header {
+  display: grid;
+  place-items: center;
+  background-color: #262626;
+  padding: 2rem 0;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header .site-title {
+  text-transform: uppercase;
+}
+
+.header .site-description {
+  text-align: center;
+}
+
+/* --------- CONTAINER  --------- */
+
+.container {
+  max-width: 37rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* --------- BLOG INDEX --------- */
+
+.blog-feed ul {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-feed article {
+  border-bottom: 1px solid #707070;
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.blog-feed article a {
+  text-decoration: none;
+}
+
+.blog-feed article a h2 {
+  margin: 0.5rem 0;
+}
+
+.blog-feed .category ul,
+.blog-feed .category ul li {
+  display: inline;
+}
+
+.blog-feed .category ul {
+  padding-left: 0.5rem;
+}
+
+/* ------ SINGLE BLOG POST ------ */
+
+.single-post {
+  padding-bottom: 2rem;
+}
+
+.single-post .category ul,
+.single-post .category ul li {
+  display: inline;
+}
+
+.single-post .category ul {
+  padding-left: 0.5rem;
+}
+
+.single-post .like {
+  display: flex;
+  align-items: baseline;
+  margin: 0.5rem 0;
+}
+
+.single-post .like span {
+  margin-right: 0.5rem;
+}
+
+.single-post .like button {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #333;
+  padding: 0.25rem;
+  width: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.single-post .like button:hover {
+  background-color: #262626;
+  cursor: pointer;
+}
+
+.single-post p a:hover,
+.single-post p a:focus {
+  text-decoration: none;
+}
+
+/* --------- FOOTER --------- */
+
+.footer {
+  display: grid;
+  place-items: center;
+  background-color: #262626;
+  padding: 2rem 0;
+}

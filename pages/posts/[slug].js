@@ -11,7 +11,8 @@ import {
 } from '../../lib/sanity'
 
 const siteSettingsQuery = `*[ _type == 'siteSettings' ][0]{
-    siteName
+    siteName,
+    description
 }`
 
 const postQuery = `*[ _type == 'post' && slug.current == $slug ][0]{
@@ -80,22 +81,23 @@ const Post = ({ siteSettings, data }) => {
     console.log(likes)
     return (
         <Layout siteSettings={siteSettings} post={post}>
-            <article>
+            <article className="single-post">
                 <h1>{post.title}</h1>
                 <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />
-                <div>
+                <div className="like">
+                    <span>Like</span>
                     <button onClick={handleLike}>
-                        {likes} <BiLike />
+                        {likes}<BiLike />
                     </button>
                 </div>
-                <div>Category:
+                <div className="category">Category:
                     <ul>{post.categories.map(cat => (
                         <li key={cat._id}>
                             {cat.title}
                         </li>
                     ))}</ul>
                 </div>
-                <div>
+                <div className="body">
                     <PortableText blocks={post.body} />
                 </div>
                 <footer>

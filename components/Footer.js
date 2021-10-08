@@ -1,7 +1,7 @@
 const Footer = ({ siteSettings }) => {
 
     return (
-        <footer>
+        <footer className="footer">
             <p>&copy; {new Date().getFullYear()} {siteSettings.siteName}</p>
         </footer>
     )

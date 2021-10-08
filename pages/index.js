@@ -45,7 +45,7 @@ const Home = ({ siteSettings, posts }) => {
 // console.log(siteSettings)
   return (
     <Layout siteSettings={siteSettings} >
-      <main>
+      <main className="blog-feed">
         <ul>
           {posts?.length > 0 && posts.map(post => (
             <li key={post._id}>
@@ -56,7 +56,7 @@ const Home = ({ siteSettings, posts }) => {
                     <h2>{post.title}</h2>
                   </a>
                 </Link>
-                <div>Category:
+                <div className="category">Category:
                   <ul>{post.categories.map(cat => (
                     <li key={cat._id}>
                       {cat.title}
@@ -66,7 +66,7 @@ const Home = ({ siteSettings, posts }) => {
                 <div>
                   <p>{post.excerpt}</p>
                 </div>
-                <div>
+                <div className="date-and-author">
                   Published on{' '}
                   <time dateTime={post.publishedAt}><FormatDate date={post.publishedAt} /></time>
                   {' '} by {post.author.name}
