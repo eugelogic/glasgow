@@ -16,9 +16,7 @@ const Layout = ({ siteSettings, post, children }) => {
                 <meta name="description" content={siteSettings?.description} />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-                {/* <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Montserrat:wght@400&display=swap" rel="stylesheet" /> */}
-                {/* <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Gruppo&family=Montserrat&display=swap" rel="stylesheet" /> */}
-                <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Montserrat:wght@400;600&display=swap" rel="stylesheet"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
             </Head>
             <div className="container">
                 <Header siteSettings={siteSettings} />
