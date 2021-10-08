@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 
-const Tekton = ({ Component, pageProps }) => {
+const Gothenburg = ({ Component, pageProps }) => {
   return <Component {...pageProps} />
 }
 
-export default Tekton
+export default Gothenburg

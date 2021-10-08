@@ -1,5 +1,5 @@
 {
-  "name": "nextjstektonblogbyem",
+  "name": "nextjsgothenburgblogbyem",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -28,6 +28,6 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git@github.com:eugelogic/tekton.git"
+    "url": "git@github.com:eugelogic/gothenburg.git"
   }
 }
