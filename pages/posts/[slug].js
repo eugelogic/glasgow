@@ -78,7 +78,7 @@ const Post = ({ siteSettings, data }) => {
 
     const { post } = data
     // console.log(post)
-    console.log(likes)
+    // console.log(likes)
     return (
         <Layout siteSettings={siteSettings} post={post}>
             <article className="single-post">
