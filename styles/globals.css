@@ -171,6 +171,14 @@ h3,
   text-decoration: none;
 }
 
+.single-post .body div figure {
+  margin: 0;
+}
+
+.single-post .body div figure img {
+  max-width: 100%;
+}
+
 /* --------- FOOTER --------- */
 
 .footer {
