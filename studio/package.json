@@ -1,5 +1,5 @@
 {
-  "name": "nextjsgothenburgblogbyem",
+  "name": "nextjsglasgowblogbyem",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -30,6 +30,6 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git@github.com:eugelogic/gothenburg.git"
+    "url": "git@github.com:eugelogic/glasgow.git"
   }
 }

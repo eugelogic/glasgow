@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 
-const Gothenburg = ({ Component, pageProps }) => {
+const Glasgow = ({ Component, pageProps }) => {
   return <Component {...pageProps} />
 }
 
-export default Gothenburg
+export default Glasgow
