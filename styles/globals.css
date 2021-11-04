@@ -1,9 +1,5 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
 
-body {
-  background-color: #8cdc73;
-}
-
 /* --------- TYPOGRAPHY --------- */
 
 .header .site-title,
@@ -37,7 +33,7 @@ h3,
 .single-post .like button:hover,
 .footer,
 .footer a {
-  color: #8cdc73;
+  color: white;
 }
 
 .blog-feed article a,
@@ -156,7 +152,7 @@ h3,
 }
 
 .single-post .like button {
-  background-color: #8cdc73;
+  background-color: white;
   border-radius: 5px;
   border: 1px solid #333;
   padding: 0.25rem;
