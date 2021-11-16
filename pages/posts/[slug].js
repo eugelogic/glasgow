@@ -66,15 +66,11 @@ const Post = ({ siteSettings, data }) => {
     const [likes, setLikes] = useState(data?.post?.likes)
 
     const handleLike = async () => {
-        // console.log(cookies)
-        // console.log(cookies.cookieLike)
-        // console.log(post._id)
-        // console.log(post.slug.current)
-        if (cookies.cookieLike != post._id) {
+
+        if (!cookies[`cookieLike-${post._id}`]) {
             setDisableButton(true)
-            setCookie('cookieLike', post._id, {
-                path: `/posts/${post.slug.current}`,
-                maxAge: 60000
+            setCookie(`cookieLike-${post._id}`, 1, {
+                maxAge: 157680000
             })
             const res = await fetch('/api/handle-like', {
                 method: 'POST',
