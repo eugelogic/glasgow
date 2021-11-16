@@ -9,6 +9,7 @@ import {
     PortableText,
     urlFor
 } from '../../lib/sanity'
+import { useCookies } from 'react-cookie';
 
 const siteSettingsQuery = `*[ _type == 'siteSettings' ][0]{
     siteName,
@@ -60,15 +61,26 @@ export const getStaticProps = async ({ params }) => {
 
 const Post = ({ siteSettings, data }) => {
 
+    const [disableButton, setDisableButton] = useState(false)
+    const [cookies, setCookie] = useCookies()
     const [likes, setLikes] = useState(data?.post?.likes)
-    const handleLike = async () => {
-        const res = await fetch('/api/handle-like', {
-            method: 'POST',
-            body: JSON.stringify({ _id: post._id})
-        }).catch((error) => console.log(error))
 
-        const data = await res.json()
-        setLikes(data.likes)
+    const handleLike = async () => {
+
+        if (!cookies[`cookieLike-${post._id}`]) {
+            setDisableButton(true)
+            setCookie(`cookieLike-${post._id}`, 1, {
+                maxAge: 157680000
+            })
+            const res = await fetch('/api/handle-like', {
+                method: 'POST',
+                body: JSON.stringify({ _id: post._id})
+            }).catch((error) => console.log(error))
+
+            const data = await res.json()
+            setLikes(data.likes)
+
+        } return
     }
 
     const router = useRouter()
@@ -86,7 +98,7 @@ const Post = ({ siteSettings, data }) => {
                 <Image src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} width={600} height={400} />
                 <div className="like">
                     <span>Like</span>
-                    <button onClick={handleLike}>
+                    <button onClick={handleLike} disabled={disableButton}>
                         {likes}<BiLike />
                     </button>
                 </div>
